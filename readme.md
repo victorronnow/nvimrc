@@ -5,7 +5,7 @@
 ### Icons
 
 If using <b>Kitty</b>:
-- Install Nerd Font Symbols
-    1. Download Nerd Font Symbols Only from the Nerd Font [release](https://github.com/ryanoasis/nerd-fonts/releases) page.
-    2. Add symbols to `.config/kitty`
+1. Install Nerd Font Symbols
+2. Download Nerd Font Symbols Only from the Nerd Font [release](https://github.com/ryanoasis/nerd-fonts/releases) page.
+3. Add symbols to `.config/kitty`
 
