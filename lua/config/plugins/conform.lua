@@ -10,6 +10,7 @@ return {
 				html = { { "prettierd", "prettier" } },
 				twig = { { "djlint" } },
 				scss = { { "prettierd", "prettier" } },
+				css = { { "prettierd", "prettier" } },
 				typescript = { { "prettierd", "prettier" } },
 				-- php = { { "prettierd", "prettier" } },
 				php = { "phpcbf" },
