@@ -6,3 +6,4 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.o.scrolloff = 12
+vim.g.netrw_banner = 0
