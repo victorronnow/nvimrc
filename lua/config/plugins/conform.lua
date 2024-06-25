@@ -6,7 +6,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				javascript = { { "prettierd", "prettier" }, "biome" },
+				javascript = { "biome", { "prettierd", "prettier" } },
 				html = { { "prettierd", "prettier" } },
 				twig = { "djlint" },
 				scss = { { "prettierd", "prettier" } },
