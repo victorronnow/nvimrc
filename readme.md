@@ -1,11 +1,16 @@
 <h1 align="center"><b>✨Nvimrc✨</b></h1>
 
+This is my personal neovim configuration. It is a work in progress and will be updated as I learn more about vim and neovim.
+
+## Features
+
+- [x] [LSP](
+- [x] [Treesitter](
 
 ## Requirements
 
-### Icons
+### Icons for Kitty
 
-<b>Kitty</b>:
 1. Install Nerd Font Symbols
 2. Download Nerd Font Symbols Only `brew install font-symbols-only-nerd-font` [release](https://github.com/ryanoasis/nerd-fonts/releases).
 3. Add symbols to `.config/kitty`
