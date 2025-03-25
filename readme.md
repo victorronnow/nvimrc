@@ -2,6 +2,8 @@
 
 This is my personal minimal neovim configuration. It is a work in progress and will be updated as I learn more about vim and neovim.
 
+![nvim](preview.png)
+
 ## Features
 
 - [x] LSP
