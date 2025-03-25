@@ -1,11 +1,18 @@
 <h1 align="center"><b>✨Nvimrc✨</b></h1>
 
-This is my personal neovim configuration. It is a work in progress and will be updated as I learn more about vim and neovim.
+This is my personal minimal neovim configuration. It is a work in progress and will be updated as I learn more about vim and neovim.
 
 ## Features
 
-- [x] [LSP](
-- [x] [Treesitter](
+- [x] LSP
+- [x] Treesitter
+- [x] Telescope
+- [x] Conform (Autoformat)
+- [x] Vim Fugitive (Git)
+- [x] Copilot
+- [x] Autopairs
+- [x] Oil
+- [x] Tokyonight 
 
 ## Requirements
 
