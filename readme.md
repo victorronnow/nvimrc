@@ -1,4 +1,4 @@
-<h1 align="center"><b>✨Nvimrc✨</b></h1>
+<h1 align="center"><b>nvimrc 🌱</b></h1>
 
 This is my personal minimal neovim configuration. It is a work in progress and will be updated as I learn more about vim and neovim.
 
