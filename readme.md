@@ -21,7 +21,7 @@ This is my personal minimal neovim configuration. It is a work in progress and w
 ### Icons for Kitty
 
 <details>
-<summary>Installation</summary>
+<summary><b>Installation</b></summary>
 
 1. Install Nerd Font Symbols
 2. Download Nerd Font Symbols Only `brew install font-symbols-only-nerd-font` [release](https://github.com/ryanoasis/nerd-fonts/releases).
