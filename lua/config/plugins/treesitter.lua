@@ -3,7 +3,7 @@ return {
 	build = ":TSUpdate",
 
 	config = function()
-		vim.filetype.add({ extension = { wgsl = "wgsl", fs = "glsl", vs = "glsl" } })
+		vim.filetype.add({ extension = { wgsl = "wgsl", fs = "glsl", vs = "glsl", njk = "html" } })
 
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {

@@ -31,7 +31,7 @@ return {
 				"cssls",
 				"lua_ls",
 				"rust_analyzer",
-				"tsserver",
+				"ts_ls",
 				"emmet_ls",
 			},
 			handlers = {
