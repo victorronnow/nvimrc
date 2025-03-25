@@ -22,6 +22,7 @@ This is my personal minimal neovim configuration. It is a work in progress and w
 
 <details>
 <summary>Installation</summary>
+
 1. Install Nerd Font Symbols
 2. Download Nerd Font Symbols Only `brew install font-symbols-only-nerd-font` [release](https://github.com/ryanoasis/nerd-fonts/releases).
 3. Add symbols to `.config/kitty`
