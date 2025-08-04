@@ -23,6 +23,14 @@ return {
 			cmp_lsp.default_capabilities()
 		)
 
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+		vim.filetype.add({
+			extension = {
+				hbs = "handlebars",
+			},
+		})
+
 		require("fidget").setup({})
 		require("mason").setup()
 		require("mason-lspconfig").setup({
@@ -51,6 +59,34 @@ return {
 									globals = { "vim", "it", "describe", "before_each", "after_each" },
 								},
 							},
+						},
+					})
+
+					lspconfig.cssls.setup({
+						capabilities = capabilities,
+						settings = {
+							css = {
+								validate = true,
+								lint = {
+									unknownAtRules = "ignore",
+								},
+							},
+						},
+					})
+				end,
+
+				["html"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.html.setup({
+						capabilities = capabilities,
+						filetypes = { "html", "handlebars" },
+						init_options = {
+							configurationSection = { "html", "css", "javascript" },
+							embeddedLanguages = {
+								css = true,
+								javascript = true,
+							},
+							provideFormatter = true,
 						},
 					})
 				end,
