@@ -13,3 +13,15 @@ vim.g.have_nerd_font = true
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
+
+vim.diagnostic.config({
+	virtual_text = true,
+	float = {
+		focusable = false,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+})

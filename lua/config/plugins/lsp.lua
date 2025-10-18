@@ -1,130 +1,45 @@
 return {
-	"neovim/nvim-lspconfig",
-	dependencies = {
+	{
 		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
-		"L3MON4D3/LuaSnip",
-		"saadparwaiz1/cmp_luasnip",
-		"j-hui/fidget.nvim",
+		config = function()
+			require("mason").setup()
+		end,
 	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"lua_ls",
+					"ts_ls",
+					"emmet_ls",
+				},
+			})
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-	config = function()
-		local cmp = require("cmp")
-		local cmp_lsp = require("cmp_nvim_lsp")
-		local capabilities = vim.tbl_deep_extend(
-			"force",
-			{},
-			vim.lsp.protocol.make_client_capabilities(),
-			cmp_lsp.default_capabilities()
-		)
+			vim.lsp.config("lua_ls", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("ts_ls", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("html", {
+				capabilities = capabilities,
+			})
 
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
+			vim.lsp.config("emmet_ls", {
+				capabilities = capabilities,
+				filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "vue" },
+			})
 
-		vim.filetype.add({
-			extension = {
-				hbs = "handlebars",
-			},
-		})
-
-		require("fidget").setup({})
-		require("mason").setup()
-		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"html",
-				"cssls",
-				"lua_ls",
-				"rust_analyzer",
-				"ts_ls",
-				"emmet_ls",
-			},
-			handlers = {
-				function(server_name) -- default handler (optional)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-					})
-				end,
-
-				["lua_ls"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.lua_ls.setup({
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								diagnostics = {
-									globals = { "vim", "it", "describe", "before_each", "after_each" },
-								},
-							},
-						},
-					})
-
-					lspconfig.cssls.setup({
-						capabilities = capabilities,
-						settings = {
-							css = {
-								validate = true,
-								lint = {
-									unknownAtRules = "ignore",
-								},
-							},
-						},
-					})
-				end,
-
-				["html"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.html.setup({
-						capabilities = capabilities,
-						filetypes = { "html", "handlebars" },
-						init_options = {
-							configurationSection = { "html", "css", "javascript" },
-							embeddedLanguages = {
-								css = true,
-								javascript = true,
-							},
-							provideFormatter = true,
-						},
-					})
-				end,
-			},
-		})
-
-		local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-		cmp.setup({
-			snippet = {
-				expand = function(args)
-					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-				end,
-			},
-			mapping = cmp.mapping.preset.insert({
-				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-				["<C-y>"] = cmp.mapping.confirm({ select = true }),
-				["<C-Space>"] = cmp.mapping.complete(),
-			}),
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
-			}, {
-				{ name = "buffer" },
-			}),
-		})
-
-		vim.diagnostic.config({
-			-- update_in_insert = true,
-			float = {
-				focusable = false,
-				style = "minimal",
-				border = "rounded",
-				source = "always",
-				header = "",
-				prefix = "",
-			},
-		})
-	end,
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+		end,
+	},
 }
