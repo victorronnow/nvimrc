@@ -17,3 +17,12 @@ vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
 vim.keymap.set("n", "<leader>h", ":nohl<CR>")
+
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
+
+vim.keymap.set("n", "<leader>rs", function()
+	vim.cmd("LspRestart")
+end, { desc = "Restart TypeScript Server" })
+
+vim.keymap.set("n", "<leader>p", [["_d"+p]], { desc = "Replace with clipboard" })
+vim.keymap.set("v", "<leader>p", [["_d"+p]], { desc = "Replace selection with clipboard" })
