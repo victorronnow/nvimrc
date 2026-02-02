@@ -7,7 +7,7 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
-				html = { "prettierd", "prettier", stop_after_first = true },
+				html = { "biome", "prettierd", "prettier", stop_after_first = true },
 				twig = { "djlint" },
 				handlebars = { "djlint" },
 				scss = { "biome", "prettierd", "prettier", stop_after_first = true },

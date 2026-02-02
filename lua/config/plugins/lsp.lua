@@ -34,7 +34,18 @@ return {
 
 			vim.lsp.config("emmet_ls", {
 				capabilities = capabilities,
-				filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "vue" },
+				filetypes = {
+					"html",
+					"typescriptreact",
+					"javascriptreact",
+					"css",
+					"sass",
+					"scss",
+					"less",
+					"vue",
+					"svelte",
+					"handlebars",
+				},
 			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

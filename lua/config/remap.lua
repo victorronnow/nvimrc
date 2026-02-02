@@ -26,3 +26,5 @@ end, { desc = "Restart LSP Server" })
 
 vim.keymap.set("n", "<leader>p", [["_d"+p]], { desc = "Replace with clipboard" })
 vim.keymap.set("v", "<leader>p", [["_d"+p]], { desc = "Replace selection with clipboard" })
+
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal-mode" })
