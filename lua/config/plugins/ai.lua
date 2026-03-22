@@ -23,6 +23,11 @@ return {
 			-- open suggestion/result in a split instead of replacing your buffer
 			open_in_split = true,
 		},
+
+		nes = {
+			-- Disable Next Edit Suggestions
+			enabled = false,
+		},
 	},
 
 	config = function(_, opts)
