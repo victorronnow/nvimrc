@@ -49,8 +49,23 @@ return {
 			})
 
 			vim.lsp.config("oxlint", {
+				cmd = { "oxlint", "--lsp" },
 				capabilities = capabilities,
 			})
+			vim.lsp.enable("oxlint")
+
+			vim.lsp.config("oxfmt", {
+				cmd = { "oxfmt", "--lsp" },
+				capabilities = capabilities,
+				settings = {
+					oxc = {
+						fmt = {
+							configPath = "./vite.config.ts",
+						},
+					},
+				},
+			})
+			vim.lsp.enable("oxfmt")
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
