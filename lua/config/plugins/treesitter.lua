@@ -1,5 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "main",
+	lazy = false,
 	build = ":TSUpdate",
 
 	config = function()
@@ -7,30 +9,42 @@ return {
 			extension = { wgsl = "wgsl", fs = "glsl", vs = "glsl", njk = "html", hbs = "handlebars" },
 		})
 
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = {
+		require("nvim-treesitter").install({
+			"typescript",
+			"tsx",
+			"html",
+			"scss",
+			"css",
+			"javascript",
+			"c",
+			"lua",
+			"vim",
+			"vimdoc",
+			"query",
+			"wgsl",
+			"glsl",
+		})
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = {
 				"typescript",
-				"tsx",
+				"typescriptreact",
+				"javascript",
+				"javascriptreact",
 				"html",
 				"scss",
 				"css",
-				"javascript",
 				"c",
 				"lua",
 				"vim",
-				"vimdoc",
+				"help",
 				"query",
 				"wgsl",
 				"glsl",
 			},
-
-			sync_install = false,
-			auto_install = true,
-
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = false,
-			},
+			callback = function()
+				vim.treesitter.start()
+			end,
 		})
 	end,
 }
